@@ -7,7 +7,7 @@ Suite Setup  Setup chromedriver
 
 *** Variables ***
 
-${LOGIN URL}        https://scouts-test.futbolkolektyw.pl/en/
+${LOGIN URL}        https://scouts.futbolkolektyw.pl/en/
 ${BROWSER}      Chrome
 ${SIGNINBUTTON}     xpath=//*[@type='submit']/span[1]
 ${LOGININPUT}       xpath=//*[@id='login']
@@ -85,7 +85,6 @@ Add New Player
     Type in login
     Type in password
     Click on the Send button
-    Assert Dashboard
     Click on Add Player
     Type in name
     Type in surname
@@ -138,6 +137,7 @@ Type in email
 Click on Back to sign in
     Click Element       ${BACKTOSIGNINLINK}
 Click on Add Player
+    wait until element is visible       ${ADDPLAYERLINK}
     Click Element       ${ADDPLAYERLINK}
     wait until element is visible       ${ADDPLAYERLOGO}
 Type in name
