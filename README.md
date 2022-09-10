@@ -1,2 +1,2 @@
 # vtelt_robotframework
- Rorot Framework test cases
+ Robot Framework test cases
