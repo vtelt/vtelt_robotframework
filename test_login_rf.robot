@@ -1,10 +1,13 @@
 *** Settings ***
 Library     SeleniumLibrary
 Documentation       Suite description #automated tests for scout website
+Library  OperatingSystem
+Suite Setup  Setup chromedriver
+
 
 *** Variables ***
 
-${LOGIN URL}        https://scouts-test.futbolkolektyw.pl/en
+${LOGIN URL}        https://scouts-test.futbolkolektyw.pl/en/
 ${BROWSER}      Chrome
 ${SIGNINBUTTON}     xpath=//*[@type='submit']/span[1]
 ${LOGININPUT}       xpath=//*[@id='login']
@@ -94,6 +97,8 @@ Add New Player
     [Teardown]      Close Browser
 
 *** Keywords ***
+Setup chromedriver
+  Set Environment Variable  webdriver.chrome.driver  ${EXECDIR}/chromedriver.exe
 Open login page
     Open Browser        ${LOGIN URL}    ${BROWSER}
     Title Should be     Scouts panel - sign in
